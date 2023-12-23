@@ -28,19 +28,14 @@ class InputData(BaseModel):
     longitude: float
 
 
-def get_validated_input(input_data: InputData):
-    return pd.DataFrame([input_data.latitude, input_data.longitude])
-
-
 @app.post("/predict")
-def predict(input_data: List[InputData] = Depends(get_validated_input)):
+async def predict(input_data: InputData):
     try:
-        # Make predictions with the neural network
-        # print("Input data:", input_data)
-        # neural_network_predictions = neural_network_model.predict(input_data)
-        # print(f"Predictions: {neural_network_predictions}")
-        # Apply clustering based on neural network predictions
-        cluster_label = loaded_clustering_model.fit_predict(input_data)
+        new_data = pd.DataFrame({'latitude': [input_data.latitude],
+                                    'longitude': [input_data.longitude]})
+        new_data = new_data.astype(np.float64)
+        print(f"New data {new_data}")
+        cluster_label = loaded_clustering_model.predict(new_data)
 
         # Return the cluster label
         return {"cluster_label": int(cluster_label[0])}
