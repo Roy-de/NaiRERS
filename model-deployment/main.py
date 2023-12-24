@@ -1,6 +1,5 @@
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-import tensorflow as tf
 import joblib
 from pydantic import BaseModel
 from typing import List
@@ -17,7 +16,7 @@ app.add_middleware(
     allow_headers=["*"],  # Allow all HTTP headers
 )
 # Load neural network
-neural_network_model = tf.keras.models.load_model("model")
+#neural_network_model = tf.keras.models.load_model("model")
 
 # Load clustering model
 loaded_clustering_model = joblib.load("model/agg_model.pkl")
