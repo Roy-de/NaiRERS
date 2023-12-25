@@ -34,10 +34,18 @@ async def predict(input_data: InputData):
                                     'longitude': [input_data.longitude]})
         new_data = new_data.astype(np.float64)
         print(f"New data {new_data}")
-        cluster_label = loaded_clustering_model.predict(new_data)
+        cluster = loaded_clustering_model.predict(new_data)
+        print(f"Predicted cluster {cluster}")
 
         # Return the cluster label
-        return {"cluster_label": int(cluster_label[0])}
+        return {"cluster": int(cluster[0])}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/neighbouring-clusters")
+async def get_neighbours(input_data : InputData):
+    try:
+        #Get neighbouring clusters
+    except Exception as e:
+        raise HTTPException(status_code=500,detail = str(e))
