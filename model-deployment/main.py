@@ -32,10 +32,13 @@ async def predict(input_data: InputData):
     try:
         # Extract coordinates from the input data
         single_point = np.array([[input_data.latitude, input_data.longitude]])
-
+        
+        feature_names = ['latitude', 'longitude']
+        
+        input_df = pd.DataFrame(single_point, columns=feature_names)
         # Predict the cluster for the single point
-        cluster = loaded_clustering_model.predict(single_point)
-
+        cluster = loaded_clustering_model.predict(input_df)
+        
         # Print and return the predicted cluster label
         print(f"Predicted cluster: {cluster}")
         return {"cluster": int(cluster[0])}
@@ -62,6 +65,10 @@ async def get_neighbours(input_data : InputData):
         for i, distance in enumerate(distances_to_clusters):
             print(f"Distance from the single point to Cluster {i}: {distance:.2f} kilometers")
         
-        return {f"Distance from the single point to Cluster {i}": f"{distance:.2f} kilometers" for i, distance in enumerate(distances_to_clusters)}
+        # return {f"Distance from the single point to Cluster {i}": f"{distance:.2f} kilometers" for i, distance in enumerate(distances_to_clusters)}
+        # Return distances as a list of strings
+        distances_str = [f"{distance:.2f} kilometers" for distance in distances_to_clusters]
+        
+        return {"distances_to_clusters": distances_str}
     except Exception as e:
         raise HTTPException(status_code=500,detail = str(e))
