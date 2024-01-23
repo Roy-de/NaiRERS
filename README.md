@@ -7,3 +7,6 @@ Kenya faces a critical road safety crisis, particularly in Nairobi, where the lo
 ![Dispatcher flowchart](<images/NaiRERS - Dispatcher(1).png>)
 ### Medic flowchart
 ![Medic flowchart](<images/NaiRERS medic.png>)
+
+### Database Design
+![Database Design](<images/database.png>)
