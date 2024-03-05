@@ -6,9 +6,9 @@ function LoginForm({handleLogin , username , password , onUsernameChange , onPas
         <>
             <div className={"relative container px-4 mx-auto py-40"}>
                 <div
-                    className={"max-w-lg md:max-w-xl py-14 px-6 xs:px-12 lg:px-16 mx-auto bg-white rounded-2xl drop-shadow-2xl shadow-lg items-center"}>
-                    <div className={"py-2"}>
-                        <img src={Constant.logo} alt={""} className={"h-24 left-44 relative"}/>
+                    className={"max-w-lg py-14 px-16 mx-auto bg-white rounded-3xl drop-shadow-2xl shadow-lg items-center"}>
+                    <div className={"py-2 justify-center flex "}>
+                        <img src={Constant.logo} alt={""} className={"h-24"}/>
                     </div>
 
                     <h3 className={"font-heading text-4xl text-gray-900 font-semibold mb-4 py-2"}>Sign in to your account</h3>
@@ -36,13 +36,13 @@ function LoginForm({handleLogin , username , password , onUsernameChange , onPas
                         </div>
                         <div className="flex mb-6 items-center py-4">
                             <input type="checkbox" value=""/>
-                            <label className="ml-2 text-xs text-gray-800" htmlFor="">Remember me</label>
+                            <label className="ml-2 text-gray-800 text-lg" htmlFor="">Remember me</label>
                         </div>
-                        <button
-                            className="relative group block w-full mb-6 py-3 px-5 text-center text-sm font-semibold text-white bg-indigo-500 rounded-3xl overflow-hidden hover:bg-indigo-900"
-                            type="submit">
-                            <span className="relative">Login</span>
-                        </button>
+                        <div className={"flex flex-wrap items-center justify-center"}>
+                            <button
+                                className={"bg-[#0069b5] px-28 py-1.5 rounded-2xl text-xl text-white font-bold border-[#0069b5] border-2 hover:scale-105 duration-300 ease-in-out transition-transform"}
+                                type="submit">Login</button>
+                        </div>
                     </form>
                 </div>
             </div>

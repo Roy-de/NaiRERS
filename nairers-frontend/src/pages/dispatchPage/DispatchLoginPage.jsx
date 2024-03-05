@@ -1,5 +1,5 @@
 import React from 'react';
-import DispatchLogin from "../api/DispatchLogin";
+import DispatchLogin from "../../api/DispatchLogin";
 
 function DispatchLoginPage() {
     return (

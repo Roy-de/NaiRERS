@@ -14,7 +14,8 @@ export default{
         normal:{
             details:"api/v1/medic/create-details",
             login:"api/v1/medic/create-login"
-        }
+        },
+        info:"api/v1/medic/get_details"
     },
     dispatch:{
         admin:{
@@ -24,7 +25,8 @@ export default{
         normal:{
             details:"api/v1/dispatcher/create-details",
             login:"api/v1/dispatcher/create-login"
-        }
+        },
+        info:"api/v1/dispatcher/get_details"
     },
     hospital:{
         createAccount:"api/v1/hospital/create-account",

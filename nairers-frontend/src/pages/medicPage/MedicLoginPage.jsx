@@ -1,5 +1,5 @@
 import React from 'react';
-import MedicLogin from "../api/MedicLogin";
+import MedicLogin from "../../api/MedicLogin";
 
 function MedicLoginPage() {
     return (
